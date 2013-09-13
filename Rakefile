@@ -1,5 +1,8 @@
+require 'rake/testtask'
+
 task :default => [:test]
 
-task :test do
-  puts "TODO: add tests"
+Rake::TestTask.new do |t|
+  t.test_files = FileList['**/*_test.rb']
+  t.verbose = true
 end
