@@ -1,3 +1,4 @@
+require 'mail'
 require 'mini-smtp-server'
 
 # A MiniSmtpServer that just stores the messages
@@ -12,6 +13,7 @@ class TestMailServer < MiniSmtpServer
   end
 
   def new_message_event(hash)
-    @messages.push(hash)
+    mail = Mail.read_from_string(hash[:data])
+    @messages.push(mail)
   end
 end
