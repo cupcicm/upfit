@@ -6,3 +6,10 @@ class Processor
     raise NotImplementedError
   end
 end
+
+class DoNothingProcessor < Processor
+
+  def run(data)
+    return data
+  end
+end
