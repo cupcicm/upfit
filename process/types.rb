@@ -13,7 +13,7 @@ class FileType
     @processor = processor
   end
 
-  def process_with
+  def processor
     return @processor
   end
 end

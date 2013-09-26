@@ -9,7 +9,7 @@ end
 
 class DoNothingProcessor < Processor
 
-  def run(data)
+  def process(data)
     return data
   end
 end
