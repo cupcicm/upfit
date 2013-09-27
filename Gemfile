@@ -1,6 +1,7 @@
 require 'rbconfig'
 
 source 'https://rubygems.org'
+gem 'daemons'
 gem 'mail'
 gem 'listen'
 gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
