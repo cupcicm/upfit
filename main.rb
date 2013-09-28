@@ -1,4 +1,5 @@
 require 'daemons'
+require 'fileutils'
 require 'tempfile'
 
 require_relative 'input/listen'
@@ -29,6 +30,7 @@ def main()
       temp.write(data)
       puts "Uploading #{file} to strava..."
       uploader.upload(file)
+      FileUtils.touch("#{file}.uploaded")
       temp.close
       temp.unlink
     end
