@@ -9,7 +9,8 @@ require_relative 'upload/strava'
 require_relative 'process/types'
 
 
-def main()
+def main(dir)
+  Dir.chdir dir
   eval(File.new('config.rb').read())
   uploader = StravaUploader.new(UpfitConfig[:username],
                                 UpfitConfig[:smtp_options])
@@ -40,7 +41,10 @@ def main()
 end
 
 if __FILE__ == $0
+  stopped = false
+  dir = File.expand_path File.dirname(__FILE__)
   Daemons.run_proc('upfit') do
-    main
+    main dir
+    sleep 10 until stopped
   end
 end
