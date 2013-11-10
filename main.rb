@@ -12,7 +12,7 @@ require_relative 'process/types'
 def load_config
   yaml = YAML.load_file 'config.yml'
   # Transform keys to symbols (looks better when getting config options).
-  return  Hash[yaml.map{|(k,v)| [k.to_sym,v]}]
+  return Hash[yaml.map{|(k,v)| [k.to_sym,v]}]
 end
 
 def main(dir)
