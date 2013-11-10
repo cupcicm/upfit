@@ -1,9 +1,9 @@
 username: me@example.ecom
 watchdir: /tmp/workouts
 smtp_options:
-  - address: smtp.example.com
-  - port: 587
-  - user_name: me@example.com
-  - password: password
-  - authentication: plain
-  - enable_starttls_auto: true
+  address: smtp.example.com
+  port: 587
+  user_name: me@example.com
+  password: password
+  authentication: plain
+  enable_starttls_auto: true
