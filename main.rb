@@ -9,10 +9,18 @@ require_relative 'upload/strava'
 require_relative 'process/types'
 
 
+def symbolize_keys!(h)
+  h.keys.each do |k|
+    ks    = k.to_sym
+    h[ks] = h.delete k
+    symbolize_keys! h[ks] if h[ks].kind_of? Hash
+  end
+end
+
 def load_config
   yaml = YAML.load_file 'config.yml'
-  # Transform keys to symbols (looks better when getting config options).
-  return Hash[yaml.map{|(k,v)| [k.to_sym,v]}]
+  symbolize_keys! yaml
+  return yaml
 end
 
 def main(dir)
